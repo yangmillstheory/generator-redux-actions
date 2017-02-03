@@ -9,13 +9,17 @@ const actionCreators = createActions(...Object.values(actionTypes))
 
 export default actionCreators
 
-<% if (installAsync) { %>
-  <% for (let { camelCase } of actions) { %>
+<%_ if (installAsync) { -%>
+  <%_ for (let i = 0; i < actions.length; i++) { -%>
+    <%_ const { camelCase } = actions[i] -%>
 export function <%= camelCase %>() {
   return (dispatch, getState) => {
-    // delegate to actionCreators.<%= action %> 
+    // delegate to actionCreators.<%= camelCase %> 
   }
 }
-  <% } %>
-<% } %>
+    <%_ if (i !== actions.length - 1) { -%>
+
+    <%_ } -%>
+  <%_ } -%>
+<%_ } -%>
   
