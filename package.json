@@ -9,6 +9,9 @@
   "engines": {
     "node": ">=7.4.0"
   },
+  "files": [
+    "generators"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yangmillstheory/generator-redux-module.git"
