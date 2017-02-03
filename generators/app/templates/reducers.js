@@ -2,18 +2,20 @@ import { combineReducers } from 'redux'
 import { handleActions } from 'redux-actions'
 import actionTypes from './action-types'
 
-<% for (let { upperCase } of actions) { %>
-  <% if (index === 0) { %>
 // use reducer composition and combineReducers to refactor this
 const exampleReducer = handleActions({
-  <% } %>
+<%_ for (let i = 0; i < actions.length; i++) { -%>
+  <%_ const { upperCase } = actions[i] -%>
   [actionTypes.<%= upperCase %>](state, action) {
     // return previous state or new reference 
   },
-<% if (index === actions.length - 1) { %>
+  <%_ if (i === actions.length - 1) { -%>
 })
-  <% } %>
-<% } %>
+  <%_ } else { -%>
+
+  <%_ } -%>
+<%_ } -%>
+
 export default combineReducers({ exampleReducer })
 
 export const selectors = {

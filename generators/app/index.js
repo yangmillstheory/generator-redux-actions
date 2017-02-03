@@ -64,7 +64,7 @@ module.exports = class extends Generator {
     const separatorPattern = /\s*,\s*/
     return answers.actions.split(separatorPattern)
       .map(answer => answer.trim())
-      .map(answer => ({ upperCase: answer.toUpperCase(), camelCase: camelCase(answer) }) 
+      .map(answer => ({ upperCase: answer.toUpperCase(), camelCase: camelCase(answer) })) 
   }
 
   writing() {
