@@ -1,6 +1,10 @@
+<% actions.forEach((({ upperCase }), index) => { %>
+  <% if (index === 0) { %>
 export default {
-<% for (let action of actionTypes) { %>
-  <%= action %>: '<%= action %>',
-<% } %>
+  <% } %>
+  <%= upperCase %>: '<%= upperCase %>',
+  <% if (index === actions.length - 1) { %>
 }
+  <% } %>
+<% } %>
 

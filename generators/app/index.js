@@ -3,6 +3,7 @@ const fs = require('fs')
 const glob = require('glob')
 const chalk = require('chalk')
 const yosay = require('yosay')
+const camelCase = require('lodash.camelCase')
 const Generator = require('yeoman-generator')
 
 const optionKeys = {
@@ -54,21 +55,25 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: promptKeys.actions,
-        message: 'Enter comma-separated action names:',
+        message: 'Enter comma-separated action names (will be converted to upper-case):',
       },
-    ]).then(actions => this.actions = actions)
+    ]).then(answers => this.actions = this._getActions(answers))
   }
 
-  _cleanAnswers(answers) {
+  _getActions(answers) {
     const separatorPattern = /\s*,\s*/
-    return answers.split(separatorPattern).map(answer => answer.trim())
+    return answers.actions.split(separatorPattern)
+      .map(answer => answer.trim())
+      .map(answer => ({ upperCase: answer.toUpperCase(), camelCase: camelCase(answer) }) 
   }
 
   writing() {
+    const { moduleName } = this.options
     const files = glob.sync(this.templatePath('**/*'), { dot: true })
     const destinationPath = this.destinationPath(moduleName) 
     const variables = { 
-      moduleName: this.options.moduleName,
+      moduleName,
+      actions: this.actions,
       installAsync: this.options[optionKeys.asyncActions],  
     }
     this.fs.copyTpl(files, destinationPath, variables)
