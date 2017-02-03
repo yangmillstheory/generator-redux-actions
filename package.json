@@ -12,6 +12,9 @@
   "files": [
     "generators"
   ],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yangmillstheory/generator-redux-module.git"
