@@ -81,11 +81,13 @@ module.exports = class extends Generator {
 
   end() {
     const { moduleName } = this.options
+    const cwd = process.cwd()
     this.log()
-    this.log('Your Redux module is ready.')
+    this._success(`"${moduleName}" module is ready.`)
     this.log()
-    this._success(`\tcd ${moduleName}`)
+    this._success(`\tls -l ${cwd}`)
     this.log()
+    this.spawnCommand('ls', ['-l', process.cwd()])
   }
 }
 
