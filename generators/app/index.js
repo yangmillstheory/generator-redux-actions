@@ -3,7 +3,6 @@ const fs = require('fs')
 const glob = require('glob')
 const chalk = require('chalk')
 const yosay = require('yosay')
-const pick = require('lodash.pick')
 const Generator = require('yeoman-generator')
 
 const optionKeys = {
