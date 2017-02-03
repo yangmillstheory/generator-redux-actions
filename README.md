@@ -19,7 +19,7 @@ $ npm i -g yo
 $ npm i generator-redux-actions
 ```
 
-## Create a module
+## Creating a module
 
 ```
 $ yo redux-actions todos --async-actions=true  # create thunks for your actions; need redux-thunk for this!
