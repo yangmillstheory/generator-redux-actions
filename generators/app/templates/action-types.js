@@ -1,5 +1,5 @@
 export default {
 <%_ for (let { upperCase } of actions) { -%>
-  <%= upperCase %>: '<%= upperCase %>' ,
+  <%= upperCase %>: '<%= upperCase %>',
 <%_ } -%>
 }
