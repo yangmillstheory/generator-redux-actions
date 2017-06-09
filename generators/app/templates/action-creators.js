@@ -1,8 +1,8 @@
 import { createActions } from 'redux-actions'
-import { actionTypes } from 'action-types'
+import { actionTypes } from './action-types'
 
 // uncomment to query state in thunks
-// 
+//
 // import { selectors } from './reducers'
 
 const actionCreators = createActions(...Object.values(actionTypes))
@@ -14,7 +14,7 @@ export default actionCreators
     <%_ const { camelCase } = actions[i] -%>
 export function <%= camelCase %>() {
   return (dispatch, getState) => {
-    // delegate to actionCreators.<%= camelCase %> 
+    // delegate to actionCreators.<%= camelCase %>
   }
 }
     <%_ if (i !== actions.length - 1) { -%>
@@ -22,4 +22,4 @@ export function <%= camelCase %>() {
     <%_ } -%>
   <%_ } -%>
 <%_ } -%>
-  
+
