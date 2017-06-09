@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions'
-import { actionTypes } from './action-types'
+import actionTypes from './action-types'
 
 // uncomment to query state in thunks
 //
